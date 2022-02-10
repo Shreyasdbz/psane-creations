@@ -5,7 +5,7 @@ import ArtWork from '../components/views/ArtWork'
 import Exhibitions from '../components/views/Exhibitions'
 import Landing from '../components/views/Landing'
 
-import PageContainer from '../components/base/Layout'
+import Layout from '../components/base/Layout'
 
 export default function Home() {
   return (
@@ -13,12 +13,12 @@ export default function Home() {
       <Head>
         <title>PSane Creations</title>
       </Head>
-      <PageContainer>
+      <Layout>
         <Landing />
         <ArtWork />
         <Exhibitions />
         <About />
-      </PageContainer>
+      </Layout>
     </>
   )
 }
