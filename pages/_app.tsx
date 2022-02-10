@@ -1,8 +1,13 @@
-import '../styles/globals.css'
+import '../styles/main.css'
 import type { AppProps } from 'next/app'
+import { UiContextProvider } from '../context/UiContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <UiContextProvider>
+      <Component {...pageProps} />
+    </UiContextProvider>
+  )
 }
 
 export default MyApp

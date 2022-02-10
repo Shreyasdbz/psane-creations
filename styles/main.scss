@@ -1,0 +1,51 @@
+@import url('https://use.typekit.net/pxg0wmk.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: 0.3s;
+}
+
+section {
+  @apply flex min-h-screen w-screen flex-col items-center justify-center bg-cover;
+}
+
+main {
+  @apply flex w-full max-w-6xl flex-col items-center justify-center;
+}
+
+.blur-layer {
+  backdrop-filter: blur(1px);
+}
+
+.header-title-font {
+  font-family: bely-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navbar-link {
+  @apply rounded-lg px-4 py-2 lg:cursor-pointer;
+
+  &:hover {
+    @apply bg-gray-100 shadow-md;
+  }
+}
+.navbar-link-active {
+  @apply underline underline-offset-2;
+}
+
+.mobile-nav-menu {
+  .bar {
+    @apply h-0.5 w-6 rounded-full bg-red-800 shadow-sm;
+  }
+}
+.navbar-link-mobile {
+  @apply rounded-md bg-gray-50 px-4 py-2 shadow-sm;
+}
+.nav-bar-link-active-mobile {
+  @extend .navbar-link-active;
+  @apply bg-gray-200;
+}
