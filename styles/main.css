@@ -12,7 +12,11 @@ section {
 }
 
 main {
-  @apply flex w-full max-w-6xl flex-col items-center justify-center;
+  @apply flex w-full max-w-6xl flex-col items-center justify-center px-4;
+}
+
+.hover-bounce {
+  @apply lg:hover:-translate-y-0.5 lg:hover:cursor-pointer lg:hover:shadow-md;
 }
 
 .blur-layer {

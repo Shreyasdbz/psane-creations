@@ -8,7 +8,7 @@ const NavBar = () => {
   const toggleMobileNavMenu = useContext(UiContext).toggleMobileNavMenu
   return (
     <nav
-      className={`navbar fixed top-0 left-0 z-20 flex w-full items-center justify-center bg-white px-4 py-6 lg:px-10 ${
+      className={`navbar fixed top-0 left-0 z-20 flex w-full items-center justify-center bg-white py-6 lg:px-10 ${
         mobileNavMenuActive ? 'shadow-sm' : ''
       }`}
     >
@@ -86,13 +86,13 @@ const NavBar = () => {
         </button>
         {/* Size [mobile] Nav Menu*/}
         {mobileNavMenuActive && (
-          <div className="fixed top-20 right-0 flex flex-col items-end justify-center gap-4 px-4 text-lg">
+          <div className="fixed top-28 right-0 flex flex-col items-end justify-center gap-4 px-4 text-lg">
             <Link
               to="section-landing"
               smooth={true}
               spy={true}
               className="navbar-link-mobile"
-              activeClass="nav-bar-link-active-mobile "
+              activeClass="nav-bar-link-active-mobile animate-slideFromLeft"
               onClick={toggleMobileNavMenu}
             >
               <span>Home</span>
@@ -102,7 +102,7 @@ const NavBar = () => {
               smooth={true}
               spy={true}
               className="navbar-link-mobile"
-              activeClass="nav-bar-link-active-mobile "
+              activeClass="nav-bar-link-active-mobile animate-slideFromLeft"
               onClick={toggleMobileNavMenu}
             >
               <span>Art Work</span>
@@ -112,7 +112,7 @@ const NavBar = () => {
               smooth={true}
               spy={true}
               className="navbar-link-mobile"
-              activeClass="nav-bar-link-active-mobile "
+              activeClass="nav-bar-link-active-mobile animate-slideFromLeft"
               onClick={toggleMobileNavMenu}
             >
               <span>Exhibitions</span>
@@ -122,7 +122,7 @@ const NavBar = () => {
               smooth={true}
               spy={true}
               className="navbar-link-mobile"
-              activeClass="nav-bar-link-active-mobile "
+              activeClass="nav-bar-link-active-mobile animate-slideFromLeft"
               onClick={toggleMobileNavMenu}
             >
               <span>About</span>

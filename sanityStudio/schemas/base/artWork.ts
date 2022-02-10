@@ -4,8 +4,34 @@ export const artWork = {
   title: 'Art Work',
   fields: [
     {
-      title: 'Art Work Title',
+      title: 'Art Piece Title',
       name: 'title',
+      type: 'string',
+    },
+    {
+      title: 'Category',
+      name: 'category',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'artWorkCategory' }],
+        },
+      ],
+    },
+    {
+      title: 'Price',
+      name: 'price',
+      type: 'number',
+    },
+    {
+      title: 'Quantity in stock',
+      name: 'stockQuantity',
+      type: 'number',
+    },
+    {
+      title: 'SKU',
+      name: 'sku',
       type: 'string',
     },
     {
@@ -19,25 +45,24 @@ export const artWork = {
       type: 'boolean',
     },
     {
-      title: 'SKU',
-      name: 'sku',
-      type: 'string',
+      title: 'Primary Photo',
+      name: 'primaryPhoto',
+      type: 'image',
+    },
+    {
+      title: 'Photos',
+      name: 'photos',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+        },
+      ],
     },
     {
       title: 'Description',
       name: 'desc',
       type: 'richText',
-    },
-    {
-      title: 'Category',
-      name: 'category',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'artWorkCategory' }],
-        },
-      ],
     },
   ],
 }

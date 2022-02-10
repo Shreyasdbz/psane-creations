@@ -8,5 +8,15 @@ export const artWorkCategory = {
       name: 'name',
       type: 'string',
     },
+    {
+      title: 'Category Logo/Photo',
+      name: 'categoryPhoto',
+      type: 'image',
+    },
+    {
+      title: 'Display Category?',
+      name: 'categoryShown',
+      type: 'boolean',
+    },
   ],
 }
