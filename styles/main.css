@@ -16,7 +16,7 @@ main {
 }
 
 .hover-bounce {
-  @apply lg:hover:-translate-y-0.5 lg:hover:cursor-pointer lg:hover:shadow-md;
+  @apply lg:hover:-translate-y-0.5 lg:hover:cursor-pointer lg:hover:shadow-md lg:hover:shadow-red-200/25;
 }
 
 .blur-layer {
@@ -31,11 +31,11 @@ main {
 }
 
 .navbar-link {
-  @apply rounded-lg px-4 py-2 lg:cursor-pointer;
+  @apply rounded-lg px-4 py-2 text-red-800 lg:cursor-pointer;
 }
 
 .navbar-link:hover {
-  @apply bg-gray-100 shadow-md;
+  @apply bg-red-50 shadow-md shadow-red-200/25;
 }
 
 .navbar-link-active, .nav-bar-link-active-mobile {

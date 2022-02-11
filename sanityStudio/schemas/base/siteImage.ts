@@ -18,5 +18,10 @@ export const siteImage = {
         hotspot: true,
       },
     },
+    {
+      title: 'Etsy Link',
+      name: 'link',
+      type: 'url',
+    },
   ],
 }

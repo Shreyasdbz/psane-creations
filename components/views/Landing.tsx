@@ -21,25 +21,46 @@ const Landing = () => {
       {/* Landing Images */}
       <div className="banner-images flex w-full items-center justify-center overflow-x-hidden lg:gap-1">
         {landingImageLeft && (
-          <img
-            src={landingImageLeft.imageContent.asset.url}
-            alt={landingImageLeft.imageName}
-            className="hidden h-32 w-auto object-cover opacity-80 shadow-xl lg:block lg:h-104 lg:w-128"
-          />
+          <a
+            href={landingImageLeft.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover-bounce"
+          >
+            <img
+              src={landingImageLeft.imageContent.asset.url}
+              alt={landingImageLeft.imageName}
+              className="hidden h-32 w-auto object-cover opacity-80 shadow-xl lg:block lg:h-104 lg:w-128"
+            />
+          </a>
         )}
         {landingImageMiddle && (
-          <img
-            src={landingImageMiddle.imageContent.asset.url}
-            alt={landingImageMiddle.imageName}
-            className="h-auto w-full shadow-xl lg:h-104 lg:w-auto"
-          />
+          <a
+            href={landingImageMiddle.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover-bounce"
+          >
+            <img
+              src={landingImageMiddle.imageContent.asset.url}
+              alt={landingImageMiddle.imageName}
+              className="h-auto w-full shadow-xl lg:h-104 lg:w-auto"
+            />
+          </a>
         )}
         {landingImageRight && (
-          <img
-            src={landingImageRight.imageContent.asset.url}
-            alt={landingImageRight.imageName}
-            className="hidden h-32 w-auto object-cover opacity-80 shadow-xl lg:block lg:h-104 lg:w-128"
-          />
+          <a
+            href={landingImageRight.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover-bounce"
+          >
+            <img
+              src={landingImageRight.imageContent.asset.url}
+              alt={landingImageRight.imageName}
+              className="hidden h-32 w-auto object-cover opacity-80 shadow-xl lg:block lg:h-104 lg:w-128"
+            />
+          </a>
         )}
       </div>
 
@@ -66,7 +87,7 @@ const Landing = () => {
           </button>
         </a>
         <Link to="section-artWork" smooth={true}>
-          <button className="hover-bounce rounded-xl bg-red-100 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-400/25">
+          <button className="hover-bounce rounded-xl bg-red-100 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-200/25">
             Browse
           </button>
         </Link>

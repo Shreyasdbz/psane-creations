@@ -26,6 +26,7 @@ export const GET_LANDING_IMAGE_LEFT = gql`
           url
         }
       }
+      link
     }
   }
 `
@@ -41,6 +42,7 @@ export const GET_LANDING_IMAGE_MIDDLE = gql`
           url
         }
       }
+      link
     }
   }
 `
@@ -56,6 +58,7 @@ export const GET_LANDING_IMAGE_RIGHT = gql`
           url
         }
       }
+      link
     }
   }
 `
