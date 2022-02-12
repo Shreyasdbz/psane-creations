@@ -30,6 +30,7 @@ export const ART_WORK_CATEGORY_ANY: ArtWorkCategoryType = {
 
 export type ArtWorkType = {
   _id: string
+  _createdAt: string
   title: string
   category: ArtWorkCategoryType[]
   price: number

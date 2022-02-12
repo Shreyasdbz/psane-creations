@@ -14,6 +14,7 @@ export const GET_ALL_ART_WORK = gql`
   query {
     allArtWork {
       _id
+      _createdAt
       title
       category {
         _id

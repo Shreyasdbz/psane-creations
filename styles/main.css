@@ -20,8 +20,8 @@ main {
 }
 
 .blur-layer {
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
 }
 
 .header-title-font {

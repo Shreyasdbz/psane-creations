@@ -4,7 +4,8 @@ import { SanityContext } from '../../context/SanityContext'
 
 import SectionContainer from '../base/SectionContainer'
 import SectionTitle from '../base/SectionTitle'
-import ArtWorkCategories from '../base/ArtWorkCategories'
+import ArtWorkCategories from '../util/ArtWorkCategories'
+import ArtWorkGrid from '../util/ArtWorkGrid'
 
 const ArtWork = () => {
   const artWorkCategories = useContext(SanityContext).artWorkCategories
@@ -14,6 +15,7 @@ const ArtWork = () => {
     <SectionContainer sectionId="section-artWork">
       <SectionTitle>Art Work</SectionTitle>
       <ArtWorkCategories />
+      <ArtWorkGrid />
     </SectionContainer>
   )
 }

@@ -15,6 +15,7 @@ import {
   GET_ART_WORK_CATEGORIES,
   GET_ALL_ART_WORK,
 } from '../graphql/queries/art'
+import { sortArtWorkCategoriesByName, sortArtWorkByDate } from '../lib/art'
 
 type SanityContextType = {
   landingImageLeft: SiteImageType | null
@@ -74,14 +75,16 @@ export const SanityContextProvider = ({
         query: GET_ART_WORK_CATEGORIES,
       })
       .then((res) => {
-        setArtWorkCategories(res.data.allArtWorkCategory)
+        setArtWorkCategories(
+          sortArtWorkCategoriesByName(res.data.allArtWorkCategory)
+        )
       })
     await apolloClient
       .query({
         query: GET_ALL_ART_WORK,
       })
       .then((res) => {
-        setArtWork(res.data.allArtWork)
+        setArtWork(sortArtWorkByDate(res.data.allArtWork))
       })
   }
 

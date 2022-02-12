@@ -39,7 +39,7 @@ const Landing = () => {
             href={landingImageMiddle.link}
             target="_blank"
             rel="noreferrer"
-            className="hover-bounce"
+            className="hover-bounce "
           >
             <img
               src={landingImageMiddle.imageContent.asset.url}
