@@ -31,3 +31,7 @@ export function sortArtWorkByDate(unsortedArtWork: ArtWorkType[]) {
 
   return result
 }
+
+export function displayArtByCategory(selectedCategories: ArtWorkCategoryType) {
+  //
+}

@@ -43,6 +43,9 @@ export const SanityContextProvider = ({
     ArtWorkCategoryType[] | null
   >(null)
   const [artWork, setArtWork] = useState<ArtWorkType[] | null>(null)
+  const [_unfilteredArtWork, _setUnfilteredArtWork] = useState<
+    ArtWorkType[] | null
+  >(null)
 
   async function _get_cms_data() {
     //
@@ -84,6 +87,7 @@ export const SanityContextProvider = ({
         query: GET_ALL_ART_WORK,
       })
       .then((res) => {
+        _setUnfilteredArtWork(sortArtWorkByDate(res.data.allArtWork))
         setArtWork(sortArtWorkByDate(res.data.allArtWork))
       })
   }

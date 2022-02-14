@@ -81,13 +81,13 @@ const Landing = () => {
           target={'_blank'}
           rel="noreferrer"
         >
-          <button className="hover-bounce flex flex-row items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-2 font-semibold text-white shadow-lg shadow-orange-500/25">
+          <button className="hover-bounce flex flex-row items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-orange-500 px-4 py-2 font-semibold text-white shadow-lg shadow-orange-500/25">
             <HiShoppingBag className="text-xl" />
             <span className="text-xl">Etsy Store</span>
           </button>
         </a>
         <Link to="section-artWork" smooth={true}>
-          <button className="hover-bounce rounded-xl bg-red-100 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-200/25">
+          <button className="hover-bounce rounded-xl border-2 border-red-800 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-200/25">
             Browse
           </button>
         </Link>

@@ -22,6 +22,12 @@ export type ArtWorkCategoryType = {
   name: string
   categoryShow: boolean
 }
+export type SectionArtWorkCategoryType = {
+  selected: boolean
+  _id: string
+  name: string
+}
+
 export const ART_WORK_CATEGORY_ANY: ArtWorkCategoryType = {
   _id: '__any__',
   name: 'Any',

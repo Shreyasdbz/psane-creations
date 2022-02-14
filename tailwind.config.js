@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      translate: {
+        0.25: '0.075rem',
+      },
       spacing: {
         104: '28rem',
         128: '32rem',
