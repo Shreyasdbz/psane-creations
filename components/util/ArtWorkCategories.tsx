@@ -1,18 +1,49 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 
-import { ART_WORK_CATEGORY_ANY } from '../../interfaces/schemas'
+import { ArtWorkCategoryType } from '../../interfaces/schemas'
 import { SanityContext } from '../../context/SanityContext'
 
-type CategoryLabelProps = {
-  categoryId: string
-  categoryText: string
+type ArtWorkCategoryLabelProps = {
+  cat: ArtWorkCategoryType
 }
-const CategoryLabel = ({ categoryId, categoryText }: CategoryLabelProps) => {
-  return (
-    <div className="hover-bounce my-4 rounded-lg bg-red-100 py-2 px-4 font-bold text-red-800 shadow-lg shadow-red-200/25 lg:my-4">
-      <span>{categoryText}</span>
-    </div>
-  )
+const ArtWorkCategoryLabel = ({ cat }: ArtWorkCategoryLabelProps) => {
+  const categoryChangeListener =
+    useContext(SanityContext).categoryChangeListener
+  const handleCategoryToggle = useContext(SanityContext).handleCategoryToggle
+  const selectionStatus = useContext(SanityContext).getCategorySelectionStatus
+  const [status, setStatus] = useState(selectionStatus(cat._id))
+
+  useEffect(() => {
+    setStatus(selectionStatus(cat._id))
+  }, [categoryChangeListener])
+
+  if (status === true) {
+    return (
+      <div
+        key={cat._id}
+        onClick={() => {
+          handleCategoryToggle(cat._id)
+          setStatus(selectionStatus(cat._id))
+        }}
+        className="hover-bounce my-4 rounded-lg bg-red-800 py-2 px-4 font-bold text-white shadow-lg shadow-red-200/25 lg:my-4"
+      >
+        <span>{cat.name}</span>
+      </div>
+    )
+  } else {
+    return (
+      <div
+        key={cat._id}
+        onClick={() => {
+          handleCategoryToggle(cat._id)
+          setStatus(selectionStatus(cat._id))
+        }}
+        className="hover-bounce my-4 rounded-lg bg-red-100 py-2 px-4 font-bold text-red-800 shadow-lg shadow-red-200/25 lg:my-4"
+      >
+        <span>{cat.name}</span>
+      </div>
+    )
+  }
 }
 
 const ArtWorkCategories = () => {
@@ -22,14 +53,10 @@ const ArtWorkCategories = () => {
 
   return (
     <main className="flex-row justify-start gap-2 overflow-x-scroll whitespace-nowrap lg:gap-4">
-      <CategoryLabel
-        categoryId={ART_WORK_CATEGORY_ANY._id}
-        categoryText={ART_WORK_CATEGORY_ANY.name}
-      />
       {artWorkCategories.map((c) => {
-        return (
-          <CategoryLabel key={c._id} categoryId={c._id} categoryText={c.name} />
-        )
+        if (c) {
+          return <ArtWorkCategoryLabel cat={c} key={c._id} />
+        }
       })}
     </main>
   )

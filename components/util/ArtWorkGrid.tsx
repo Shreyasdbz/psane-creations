@@ -9,7 +9,10 @@ type ArtWorkGridTileProps = {
 }
 const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
   return (
-    <div className="flex h-full w-full items-center justify-center px-1 py-4 md:px-2 md:py-6">
+    <a
+      href={art.link}
+      className="flex h-full w-full items-center justify-center px-1 py-4 md:px-2 md:py-6"
+    >
       <div className="hover-bounce flex h-full w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white shadow-lg">
         <div className="top w-full">
           <img
@@ -28,16 +31,13 @@ const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
             </span>
           </div>
           <div className="link">
-            <a
-              href={art.link}
-              className="text-md flex w-full items-center justify-start gap-1 font-bold text-orange-500"
-            >
+            <div className="text-md flex w-full items-center justify-start gap-1 font-bold text-orange-500">
               <HiLink /> ETSY
-            </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

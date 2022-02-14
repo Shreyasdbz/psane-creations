@@ -20,18 +20,8 @@ export type SiteImageType = {
 export type ArtWorkCategoryType = {
   _id: string
   name: string
-  categoryShow: boolean
-}
-export type SectionArtWorkCategoryType = {
+  categoryShown: boolean
   selected: boolean
-  _id: string
-  name: string
-}
-
-export const ART_WORK_CATEGORY_ANY: ArtWorkCategoryType = {
-  _id: '__any__',
-  name: 'Any',
-  categoryShow: true,
 }
 
 export type ArtWorkType = {

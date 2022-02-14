@@ -39,12 +39,12 @@ const Landing = () => {
             href={landingImageMiddle.link}
             target="_blank"
             rel="noreferrer"
-            className="hover-bounce "
+            className="hover-bounce m-0 flex items-center justify-center p-0"
           >
             <img
               src={landingImageMiddle.imageContent.asset.url}
               alt={landingImageMiddle.imageName}
-              className="h-auto w-full shadow-xl lg:h-104 lg:w-auto"
+              className="m-0 h-auto w-full p-0 shadow-xl lg:h-104 lg:w-auto"
             />
           </a>
         )}
@@ -87,7 +87,7 @@ const Landing = () => {
           </button>
         </a>
         <Link to="section-artWork" smooth={true}>
-          <button className="hover-bounce rounded-xl border-2 border-red-800 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-200/25">
+          <button className="hover-bounce rounded-xl border-2 border-red-800 px-6 py-2 text-xl font-semibold text-red-800 shadow-lg shadow-red-400/25">
             Browse
           </button>
         </Link>
