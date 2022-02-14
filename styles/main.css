@@ -16,7 +16,7 @@ main {
 }
 
 .hover-bounce {
-  @apply lg:hover:-translate-y-0.5 lg:hover:cursor-pointer lg:hover:opacity-90 lg:hover:shadow-md;
+  @apply cursor-pointer  lg:hover:-translate-y-0.5 lg:hover:opacity-90 lg:hover:shadow-md;
 }
 
 .blur-layer {

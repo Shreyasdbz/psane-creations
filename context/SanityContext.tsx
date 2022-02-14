@@ -4,7 +4,10 @@ import {
   SiteImageType,
   ArtWorkCategoryType,
   ArtWorkType,
+  TestimonialType,
 } from '../interfaces/schemas'
+import { ExhibitionType, SiteTextType } from '../interfaces/schemas'
+import { CATEGORY_ANY_ID } from '../lib/constants'
 import { apolloClient } from '../graphql/apolloClient'
 import {
   GET_LANDING_IMAGE_LEFT,
@@ -16,14 +19,16 @@ import {
   GET_ALL_ART_WORK,
 } from '../graphql/queries/art'
 import { GET_EXHIBITIONS } from '../graphql/queries/exhibition'
+import { GET_PROFILE_PICTURE } from '../graphql/queries/siteImage'
+import { GET_BIO } from '../graphql/queries/siteText'
+import { GET_TESTIMONIALS } from '../graphql/queries/testimonial'
 import {
   sortArtWorkCategoriesByName,
   sortArtWorkByDate,
   mapArtWorkCategories,
   displayArtByCategory,
 } from '../lib/art'
-import { CATEGORY_ANY_ID } from '../lib/constants'
-import { ExhibitionType } from '../interfaces/schemas'
+import { sortTestimonialsByDate } from '../lib/about'
 import {
   sortExhibitionsByStartDate,
   getNextExhibition,
@@ -38,6 +43,9 @@ type SanityContextType = {
   artWork: ArtWorkType[] | null
   nextExhibition: ExhibitionType | null
   futureExhibitions: ExhibitionType[] | null
+  profilePicture: SiteImageType | null
+  bio: SiteTextType | null
+  testimonials: TestimonialType[] | null
   categoryChangeListener: boolean
   getCategorySelectionStatus: (categoryId: string) => boolean
   handleCategoryToggle: (categoryId: string) => void
@@ -81,6 +89,16 @@ export const SanityContextProvider = ({
   const [futureExhibitions, setFutureExhibitions] = useState<
     ExhibitionType[] | null
   >(null)
+
+  const [profilePicture, setProfilePicture] = useState<SiteImageType | null>(
+    null
+  )
+
+  const [bio, setBio] = useState<SiteTextType | null>(null)
+
+  const [testimonials, setTestimonials] = useState<TestimonialType[] | null>(
+    null
+  )
 
   const [categoryChangeListener, setCategoryChangeListener] =
     useState<boolean>(false)
@@ -146,6 +164,27 @@ export const SanityContextProvider = ({
             sortExhibitionsByStartDate(res.data.allExhibition)
           )
         )
+      })
+    await apolloClient
+      .query({
+        query: GET_PROFILE_PICTURE,
+      })
+      .then((res) => {
+        setProfilePicture(res.data.allSiteImage[0])
+      })
+    await apolloClient
+      .query({
+        query: GET_BIO,
+      })
+      .then((res) => {
+        setBio(res.data.allSiteText[0])
+      })
+    await apolloClient
+      .query({
+        query: GET_TESTIMONIALS,
+      })
+      .then((res) => {
+        setTestimonials(sortTestimonialsByDate(res.data.allTestimonial))
       })
   }
 
@@ -214,6 +253,9 @@ export const SanityContextProvider = ({
         artWork,
         nextExhibition,
         futureExhibitions,
+        profilePicture,
+        bio,
+        testimonials,
         categoryChangeListener,
         getCategorySelectionStatus,
         handleCategoryToggle,

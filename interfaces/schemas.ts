@@ -49,3 +49,10 @@ export type ExhibitionType = {
   mapsLink: string
   booth: string
 }
+
+export type TestimonialType = {
+  _id: string
+  text: string
+  date: string
+  user: string
+}
