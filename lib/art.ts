@@ -1,6 +1,9 @@
 import { ArtWorkCategoryType, ArtWorkType } from '../interfaces/schemas'
 import { CATEGORY_ANY_ID } from './constants'
 
+//
+// Sorts art work categories by their title
+//
 export function sortArtWorkCategoriesByName(
   unsortedCategories: ArtWorkCategoryType[]
 ): ArtWorkCategoryType[] {
@@ -18,6 +21,9 @@ export function sortArtWorkCategoriesByName(
   return result
 }
 
+//
+// Sorts art work by their date created on Sanity CMS
+//
 export function sortArtWorkByDate(unsortedArtWork: ArtWorkType[]) {
   function _compare_createdAt(a: ArtWorkType, b: ArtWorkType) {
     if (a._createdAt > b._createdAt) return 1
@@ -33,6 +39,10 @@ export function sortArtWorkByDate(unsortedArtWork: ArtWorkType[]) {
   return result
 }
 
+//
+// Sets up the Context version of categories by adding
+//    a selection property
+//
 type ArtWorkCategoryUnfilteredType = {
   _id: string
   name: string
@@ -67,6 +77,10 @@ export function mapArtWorkCategories(
   return res
 }
 
+//
+// Outputs the art work that'll be displayed based
+//    on the categories that are selected
+//
 function _getSelectedCategoriesList(
   allCategories: ArtWorkCategoryType[]
 ): string[] {
@@ -76,7 +90,6 @@ function _getSelectedCategoriesList(
   }
   return res
 }
-
 export function displayArtByCategory(
   allArt: ArtWorkType[],
   allCategories: ArtWorkCategoryType[]
@@ -90,12 +103,10 @@ export function displayArtByCategory(
   }
 
   let selectedCats = _getSelectedCategoriesList(allCategories)
-  console.log(selectedCats)
   let res: ArtWorkType[] = []
 
   artLoop: for (let a of allArt) {
     catLoop: for (let c of a.category) {
-      console.log(c._id)
       if (selectedCats.includes(c._id)) {
         res.push(a)
         break catLoop

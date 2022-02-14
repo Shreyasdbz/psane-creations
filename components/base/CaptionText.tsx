@@ -6,7 +6,7 @@ const CaptionText = ({ align, children }: CaptionTextProps) => {
   return (
     <main>
       <div
-        className={`text-md flex w-full items-center font-bold text-gray-600 ${
+        className={`flex w-full items-center pt-2 text-lg font-bold text-gray-500 ${
           align === 'start' ? 'justify-start' : 'justify-center'
         }`}
       >

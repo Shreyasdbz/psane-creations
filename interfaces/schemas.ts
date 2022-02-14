@@ -38,3 +38,14 @@ export type ArtWorkType = {
   photos: SanityImageType[]
   descRaw: any
 }
+
+export type ExhibitionType = {
+  _id: string
+  title: string
+  caption: string
+  dateStart: string
+  dateEnd: string
+  mapsPhoto: SanityImageType
+  mapsLink: string
+  booth: string
+}

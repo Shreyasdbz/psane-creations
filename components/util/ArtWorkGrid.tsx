@@ -11,6 +11,8 @@ const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
   return (
     <a
       href={art.link}
+      target="_blank"
+      rel="noreferrer"
       className="flex h-full w-full items-center justify-center px-1 py-4 md:px-2 md:py-6"
     >
       <div className="hover-bounce flex h-full w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white shadow-lg">

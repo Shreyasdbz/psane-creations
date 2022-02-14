@@ -15,6 +15,7 @@ import {
   GET_ART_WORK_CATEGORIES,
   GET_ALL_ART_WORK,
 } from '../graphql/queries/art'
+import { GET_EXHIBITIONS } from '../graphql/queries/exhibition'
 import {
   sortArtWorkCategoriesByName,
   sortArtWorkByDate,
@@ -22,6 +23,12 @@ import {
   displayArtByCategory,
 } from '../lib/art'
 import { CATEGORY_ANY_ID } from '../lib/constants'
+import { ExhibitionType } from '../interfaces/schemas'
+import {
+  sortExhibitionsByStartDate,
+  getNextExhibition,
+  getFutureExhibitions,
+} from '../lib/exhibitions'
 
 type SanityContextType = {
   landingImageLeft: SiteImageType | null
@@ -29,6 +36,8 @@ type SanityContextType = {
   landingImageRight: SiteImageType | null
   artWorkCategories: ArtWorkCategoryType[] | null
   artWork: ArtWorkType[] | null
+  nextExhibition: ExhibitionType | null
+  futureExhibitions: ExhibitionType[] | null
   categoryChangeListener: boolean
   getCategorySelectionStatus: (categoryId: string) => boolean
   handleCategoryToggle: (categoryId: string) => void
@@ -60,6 +69,18 @@ export const SanityContextProvider = ({
   >(null)
 
   const [artWork, setArtWork] = useState<ArtWorkType[] | null>(null)
+
+  const [_unfilteredExhibitions, _setUnfilteredExhibitions] = useState<
+    ExhibitionType[] | null
+  >(null)
+
+  const [nextExhibition, setNextExhibition] = useState<ExhibitionType | null>(
+    null
+  )
+
+  const [futureExhibitions, setFutureExhibitions] = useState<
+    ExhibitionType[] | null
+  >(null)
 
   const [categoryChangeListener, setCategoryChangeListener] =
     useState<boolean>(false)
@@ -108,6 +129,23 @@ export const SanityContextProvider = ({
       .then((res) => {
         _setUnfilteredArtWork(sortArtWorkByDate(res.data.allArtWork))
         setArtWork(sortArtWorkByDate(res.data.allArtWork))
+      })
+    await apolloClient
+      .query({
+        query: GET_EXHIBITIONS,
+      })
+      .then((res) => {
+        _setUnfilteredExhibitions(
+          sortExhibitionsByStartDate(res.data.allExhibition)
+        )
+        setNextExhibition(
+          getNextExhibition(sortExhibitionsByStartDate(res.data.allExhibition))
+        )
+        setFutureExhibitions(
+          getFutureExhibitions(
+            sortExhibitionsByStartDate(res.data.allExhibition)
+          )
+        )
       })
   }
 
@@ -174,6 +212,8 @@ export const SanityContextProvider = ({
         landingImageRight,
         artWorkCategories,
         artWork,
+        nextExhibition,
+        futureExhibitions,
         categoryChangeListener,
         getCategorySelectionStatus,
         handleCategoryToggle,
