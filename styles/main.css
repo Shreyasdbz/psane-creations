@@ -16,7 +16,7 @@ main {
 }
 
 .hover-bounce {
-  @apply cursor-pointer  lg:hover:-translate-y-0.5 lg:hover:opacity-90 lg:hover:shadow-md;
+  @apply cursor-pointer  lg:hover:-translate-y-0.5 lg:hover:opacity-80 lg:hover:shadow-md;
 }
 
 .blur-layer {
@@ -38,19 +38,19 @@ main {
   @apply bg-red-50 shadow-md shadow-red-200/25;
 }
 
-.navbar-link-active, .nav-bar-link-active-mobile {
+.navbar-link-active {
   @apply underline underline-offset-2;
 }
 
 .mobile-nav-menu .bar {
-  @apply h-0.5 w-6 rounded-full bg-red-800 shadow-sm;
+  @apply h-0.5 w-6 rounded-full bg-red-800  shadow-sm;
 }
 
 .navbar-link-mobile {
-  @apply rounded-md bg-gray-50 px-4 py-2 shadow-sm;
+  @apply rounded-md bg-red-50 px-4 py-2 font-semibold text-red-800 shadow-sm;
 }
 
 .nav-bar-link-active-mobile {
-  @apply bg-gray-200;
+  @apply bg-red-300;
 }
 /*# sourceMappingURL=main.css.map */

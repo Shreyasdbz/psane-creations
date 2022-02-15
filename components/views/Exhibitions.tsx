@@ -3,6 +3,7 @@ import SectionContainer from '../base/SectionContainer'
 import SectionTitle from '../base/SectionTitle'
 import NextExhibition from '../util/NextExhibition'
 import FutureExhibitions from '../util/FutureExhibitions'
+import ExhibitionHighlights from '../util/ExhibitionHighlights'
 
 const Exhibtions = () => {
   return (
@@ -12,6 +13,8 @@ const Exhibtions = () => {
       <NextExhibition />
       <CaptionText align="start">IN THE FUTURE</CaptionText>
       <FutureExhibitions />
+      <CaptionText align="start">EXHIBITION HIGHLIGHTS</CaptionText>
+      <ExhibitionHighlights />
     </SectionContainer>
   )
 }

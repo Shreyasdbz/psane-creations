@@ -5,8 +5,10 @@ import {
   ArtWorkCategoryType,
   ArtWorkType,
   TestimonialType,
+  ExhibitionType,
+  SiteTextType,
+  ExhibitionHighlightPhotoType,
 } from '../interfaces/schemas'
-import { ExhibitionType, SiteTextType } from '../interfaces/schemas'
 import { CATEGORY_ANY_ID } from '../lib/constants'
 import { apolloClient } from '../graphql/apolloClient'
 import {
@@ -18,7 +20,10 @@ import {
   GET_ART_WORK_CATEGORIES,
   GET_ALL_ART_WORK,
 } from '../graphql/queries/art'
-import { GET_EXHIBITIONS } from '../graphql/queries/exhibition'
+import {
+  GET_EXHIBITIONS,
+  GET_EXHIBITION_HIGHLIGHT_PHOTOS,
+} from '../graphql/queries/exhibition'
 import { GET_PROFILE_PICTURE } from '../graphql/queries/siteImage'
 import { GET_BIO } from '../graphql/queries/siteText'
 import { GET_TESTIMONIALS } from '../graphql/queries/testimonial'
@@ -43,6 +48,7 @@ type SanityContextType = {
   artWork: ArtWorkType[] | null
   nextExhibition: ExhibitionType | null
   futureExhibitions: ExhibitionType[] | null
+  exhibitionHighlightsPhotos: ExhibitionHighlightPhotoType[] | null
   profilePicture: SiteImageType | null
   bio: SiteTextType | null
   testimonials: TestimonialType[] | null
@@ -90,6 +96,10 @@ export const SanityContextProvider = ({
     ExhibitionType[] | null
   >(null)
 
+  const [exhibitionHighlightsPhotos, setExhibitionHighlightsPhotos] = useState<
+    ExhibitionHighlightPhotoType[] | null
+  >(null)
+
   const [profilePicture, setProfilePicture] = useState<SiteImageType | null>(
     null
   )
@@ -127,8 +137,6 @@ export const SanityContextProvider = ({
       .then((res) => {
         setLandingImageRight(res.data.allSiteImage[0])
       })
-    //
-    // Get Art Data
     await apolloClient
       .query({
         query: GET_ART_WORK_CATEGORIES,
@@ -164,6 +172,13 @@ export const SanityContextProvider = ({
             sortExhibitionsByStartDate(res.data.allExhibition)
           )
         )
+      })
+    await apolloClient
+      .query({
+        query: GET_EXHIBITION_HIGHLIGHT_PHOTOS,
+      })
+      .then((res) => {
+        setExhibitionHighlightsPhotos(res.data.allExhibitionHighlightPhoto)
       })
     await apolloClient
       .query({
@@ -253,6 +268,7 @@ export const SanityContextProvider = ({
         artWork,
         nextExhibition,
         futureExhibitions,
+        exhibitionHighlightsPhotos,
         profilePicture,
         bio,
         testimonials,

@@ -18,3 +18,19 @@ export const GET_EXHIBITIONS = gql`
     }
   }
 `
+
+export const GET_EXHIBITION_HIGHLIGHT_PHOTOS = gql`
+  query {
+    allExhibitionHighlightPhoto {
+      _id
+      title
+      photoContent {
+        _key
+        asset {
+          url
+        }
+      }
+      isShown
+    }
+  }
+`

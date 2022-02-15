@@ -49,6 +49,12 @@ export type ExhibitionType = {
   mapsLink: string
   booth: string
 }
+export type ExhibitionHighlightPhotoType = {
+  _id: string
+  title: string
+  photoContent: SanityImageType
+  isShown: boolean
+}
 
 export type TestimonialType = {
   _id: string

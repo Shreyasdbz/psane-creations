@@ -3,7 +3,16 @@ import SectionContainer from './SectionContainer'
 const ErrorSection = () => {
   return (
     <SectionContainer sectionId={'section-error'}>
-      <span>Looks like we ran into an error:(</span>
+      <main>
+        <img
+          src="/assets/loadingCircleBlur.svg"
+          alt=""
+          className="h-72 w-72 animate-spin"
+        />
+        <span className="text-2xl font-semibold">
+          Loading PSane Creations ...
+        </span>
+      </main>
     </SectionContainer>
   )
 }

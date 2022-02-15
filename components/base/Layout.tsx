@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div
       className="relative min-h-screen w-screen bg-cover bg-center"
-      style={{ backgroundImage: 'url(/assets/blurShapesBg.svg)' }}
+      style={{ backgroundImage: 'url(/assets/blurCirclesBg.svg)' }}
     >
       <NavBar scrolled={scrollPosition === 0 ? false : true} />
       {children}
