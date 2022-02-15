@@ -5,7 +5,7 @@ const ErrorSection = () => {
     <SectionContainer sectionId={'section-error'}>
       <main>
         <img
-          src="/assets/loadingCircleBlur.svg"
+          src="/assets/loadingCircleblur.svg"
           alt=""
           className="h-72 w-72 animate-spin"
         />
