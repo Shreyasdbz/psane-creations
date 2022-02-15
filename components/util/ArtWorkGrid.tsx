@@ -51,7 +51,7 @@ const ArtWorkGrid = () => {
   return (
     <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {artWork.map((a) => {
-        return <ArtWorkGridTile key={a._id} art={a} />
+        if (a.stockQuantity > 0) return <ArtWorkGridTile key={a._id} art={a} />
       })}
     </main>
   )

@@ -17,6 +17,8 @@ const ArtWorkCategoryLabel = ({ cat }: ArtWorkCategoryLabelProps) => {
     setStatus(selectionStatus(cat._id))
   }, [categoryChangeListener])
 
+  if (cat.categoryShown === false) return <></>
+
   if (status === true) {
     return (
       <div

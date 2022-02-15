@@ -18,7 +18,9 @@ const Bio = () => {
           alt="profile picture"
           className="h-42 w-42 h-60 w-60 rounded-full object-cover"
         />
-        <PortableText value={bio.textContentRaw} />
+        <div className="h-full w-full px-4 py-4">
+          <PortableText value={bio.textContentRaw} />
+        </div>
       </div>
     </main>
   )
