@@ -9,7 +9,9 @@ const FutureExhibitions = () => {
   if (!exhibitions)
     return (
       <div>
-        <span>No upcoming exhibitions as of now</span>
+        <span className="my-8 text-xl font-semibold">
+          No upcoming exhibitions as of now :()
+        </span>
       </div>
     )
 
