@@ -14,7 +14,7 @@ const Testimonials = () => {
         return (
           <div
             key={t._id}
-            className="flex w-full flex-col items-start justify-center gap-4 rounded-xl  px-4 py-4 shadow-md"
+            className="flex w-full flex-col items-start justify-center gap-4 rounded-xl  bg-white px-4 py-4 shadow-md"
           >
             <p className="px-4 text-lg font-semibold italic text-gray-500">
               {t.text}

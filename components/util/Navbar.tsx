@@ -3,14 +3,18 @@ import { useContext } from 'react'
 
 import { UiContext } from '../../context/UiContext'
 
-const NavBar = () => {
+type NavBarProps = {
+  scrolled: boolean
+}
+const NavBar = ({ scrolled }: NavBarProps) => {
   const mobileNavMenuActive = useContext(UiContext).mobileNavMenuActive
   const toggleMobileNavMenu = useContext(UiContext).toggleMobileNavMenu
+
   return (
     <nav
-      className={`navbar fixed top-0 left-0 z-20 flex w-full items-center justify-center bg-white py-6 lg:px-10 ${
+      className={`navbar fixed top-0 left-0 z-30 flex w-full items-center justify-center py-6 lg:px-10 ${
         mobileNavMenuActive ? 'shadow-sm' : ''
-      }`}
+      } ${scrolled ? 'bg-white' : 'bg-none'}`}
     >
       <main className="flex-row justify-between">
         <Link
