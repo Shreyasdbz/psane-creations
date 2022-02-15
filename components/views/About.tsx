@@ -3,6 +3,7 @@ import SectionContainer from '../base/SectionContainer'
 import SectionTitle from '../base/SectionTitle'
 import Bio from '../util/Bio'
 import Testimonials from '../util/Testimonials'
+import Contact from '../util/Contact'
 
 const About = () => {
   return (
@@ -12,6 +13,8 @@ const About = () => {
       <Bio />
       <CaptionText align="start">CUSTOMER TESTIMONIALS</CaptionText>
       <Testimonials />
+      <CaptionText align="start">CONTACT</CaptionText>
+      <Contact />
     </SectionContainer>
   )
 }

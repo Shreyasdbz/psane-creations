@@ -9,7 +9,7 @@ const Testimonials = () => {
   if (!testimonials) return <span>Couldn't fetch testimonials</span>
 
   return (
-    <main className="mt-8 mb-20 gap-6">
+    <main className="mt-8 mb-12 gap-6">
       {testimonials.map((t) => {
         return (
           <div
