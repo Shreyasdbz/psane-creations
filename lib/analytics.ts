@@ -34,3 +34,15 @@ export function trackMapClick(title: string) {
     window.gtag('event', `Clicked on Exhibition: ${title}`)
   }
 }
+
+export function trackEtsyStoreButtonClick() {
+  if (typeof window !== undefined) {
+    window.gtag('event', 'Etsy Store Button Clicked')
+  }
+}
+
+export function trackHeaderImageClicked(headerImageLocation: string) {
+  if (typeof window !== undefined) {
+    window.gtag('event', `${headerImageLocation} Clicked`)
+  }
+}

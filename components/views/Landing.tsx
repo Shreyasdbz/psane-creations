@@ -1,8 +1,12 @@
 import { useContext } from 'react'
-import { HiStar, HiShoppingBag } from 'react-icons/hi'
+import { HiShoppingBag } from 'react-icons/hi'
 import { Link } from 'react-scroll'
 
 import { SanityContext } from '../../context/SanityContext'
+import {
+  trackHeaderImageClicked,
+  trackEtsyStoreButtonClick,
+} from '../../lib/analytics'
 
 import ErrorSection from '../base/ErrorSection'
 import SectionContainer from '../base/SectionContainer'
@@ -25,6 +29,9 @@ const Landing = () => {
             href={landingImageLeft.link}
             target="_blank"
             rel="noreferrer"
+            onClick={() => {
+              trackHeaderImageClicked('Landing Image Left')
+            }}
             className="hover-bounce"
           >
             <img
@@ -39,6 +46,9 @@ const Landing = () => {
             href={landingImageMiddle.link}
             target="_blank"
             rel="noreferrer"
+            onClick={() => {
+              trackHeaderImageClicked('Landing Image Middle')
+            }}
             className="hover-bounce m-0 flex items-center justify-center p-0"
           >
             <img
@@ -53,6 +63,9 @@ const Landing = () => {
             href={landingImageRight.link}
             target="_blank"
             rel="noreferrer"
+            onClick={() => {
+              trackHeaderImageClicked('Landing Image Right')
+            }}
             className="hover-bounce"
           >
             <img
@@ -80,6 +93,9 @@ const Landing = () => {
           href="https://www.etsy.com/shop/PsaneCreations"
           target={'_blank'}
           rel="noreferrer"
+          onClick={() => {
+            trackEtsyStoreButtonClick()
+          }}
         >
           <button className="hover-bounce flex flex-row items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-orange-500 px-4 py-2 font-semibold text-white shadow-lg shadow-orange-500/25">
             <HiShoppingBag className="text-xl" />
