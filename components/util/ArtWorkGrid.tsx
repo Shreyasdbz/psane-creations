@@ -4,6 +4,7 @@ import { HiLink } from 'react-icons/hi'
 import { ArtWorkType } from '../../interfaces/schemas'
 import { SanityContext } from '../../context/SanityContext'
 import { ETSY_SHOP_URL } from '../../lib/constants'
+import { trackArtWorkClick } from '../../lib/analytics'
 
 type ArtWorkGridTileProps = {
   art: ArtWorkType
@@ -15,6 +16,9 @@ const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
       href={ETSY_SHOP_URL}
       target="_blank"
       rel="noreferrer"
+      onClick={() => {
+        trackArtWorkClick(art.title)
+      }}
       className="flex h-full w-full items-center justify-center px-1 py-4 md:px-2 md:py-6"
     >
       <div className="hover-bounce flex h-full w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white shadow-lg">

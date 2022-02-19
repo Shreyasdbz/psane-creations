@@ -2,6 +2,7 @@ import { useContext } from 'react'
 
 import { SanityContext } from '../../context/SanityContext'
 import { getFancyDateString } from '../../lib/exhibitions'
+import { trackMapClick } from '../../lib/analytics'
 
 const NextExhibition = () => {
   const exhibition = useContext(SanityContext).nextExhibition
@@ -31,6 +32,9 @@ const NextExhibition = () => {
         target="_blank"
         rel="noreferrer"
         key={exhibition._id}
+        onClick={() => {
+          trackMapClick(exhibition.title)
+        }}
         className="hover-bounce lg:items-between flex h-72 w-full flex-col items-center justify-start overflow-hidden rounded-xl bg-white shadow-lg lg:h-60 lg:flex-row-reverse"
       >
         <img
