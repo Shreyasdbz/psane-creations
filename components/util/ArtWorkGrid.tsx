@@ -3,6 +3,7 @@ import { HiLink } from 'react-icons/hi'
 
 import { ArtWorkType } from '../../interfaces/schemas'
 import { SanityContext } from '../../context/SanityContext'
+import { ETSY_SHOP_URL } from '../../lib/constants'
 
 type ArtWorkGridTileProps = {
   art: ArtWorkType
@@ -10,7 +11,8 @@ type ArtWorkGridTileProps = {
 const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
   return (
     <a
-      href={art.link}
+      // href={art.link}
+      href={ETSY_SHOP_URL}
       target="_blank"
       rel="noreferrer"
       className="flex h-full w-full items-center justify-center px-1 py-4 md:px-2 md:py-6"
