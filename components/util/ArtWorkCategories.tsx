@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 
 import { ArtWorkCategoryType } from '../../interfaces/schemas'
 import { SanityContext } from '../../context/SanityContext'
+import { trackArtWorkCategoryClicked } from '../../lib/analytics'
 
 type ArtWorkCategoryLabelProps = {
   cat: ArtWorkCategoryType
@@ -26,6 +27,7 @@ const ArtWorkCategoryLabel = ({ cat }: ArtWorkCategoryLabelProps) => {
         onClick={() => {
           handleCategoryToggle(cat._id)
           setStatus(selectionStatus(cat._id))
+          trackArtWorkCategoryClicked(cat.name)
         }}
         className="hover-bounce my-4 rounded-lg bg-red-800 py-2 px-4 font-bold text-white shadow-lg shadow-red-200/25 lg:my-4"
       >
@@ -39,6 +41,7 @@ const ArtWorkCategoryLabel = ({ cat }: ArtWorkCategoryLabelProps) => {
         onClick={() => {
           handleCategoryToggle(cat._id)
           setStatus(selectionStatus(cat._id))
+          trackArtWorkCategoryClicked(cat.name)
         }}
         className="hover-bounce my-4 rounded-lg bg-red-100 py-2 px-4 font-bold text-red-800 shadow-lg shadow-red-200/25 lg:my-4"
       >

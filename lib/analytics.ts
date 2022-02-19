@@ -46,3 +46,15 @@ export function trackHeaderImageClicked(headerImageLocation: string) {
     window.gtag('event', `${headerImageLocation} Clicked`)
   }
 }
+
+export function trackArtWorkCategoryClicked(category: string) {
+  if (typeof window !== undefined) {
+    window.gtag('event', `${category} Category Clicked`)
+  }
+}
+
+export function trackContactMethodClicked(contact: string) {
+  if (typeof window !== undefined) {
+    window.gtag('event', `${contact} Contact Method Clicked`)
+  }
+}
