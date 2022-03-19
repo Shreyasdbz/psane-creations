@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { HiShoppingBag } from 'react-icons/hi'
 import { Link } from 'react-scroll'
+import { PortableText } from '@portabletext/react'
 
 import { SanityContext } from '../../context/SanityContext'
 import {
@@ -13,6 +14,7 @@ import SectionContainer from '../base/SectionContainer'
 import EtsyStars from '../util/EtsyStars'
 
 const Landing = () => {
+  const bannerText = useContext(SanityContext).bannerText
   const landingImageLeft = useContext(SanityContext).landingImageLeft
   const landingImageMiddle = useContext(SanityContext).landingImageMiddle
   const landingImageRight = useContext(SanityContext).landingImageRight
@@ -23,6 +25,13 @@ const Landing = () => {
   return (
     <SectionContainer sectionId="section-landing">
       {/* Landing Images */}
+      <main>
+        {bannerText !== null && (
+          <div className="banner-text my-4 flex w-full items-center justify-center rounded-xl bg-red-200 py-2 px-4 font-semibold text-red-800 shadow-lg">
+            <PortableText value={bannerText.textContentRaw} />
+          </div>
+        )}
+      </main>
       <div className="banner-images flex w-full items-center justify-center overflow-x-hidden lg:gap-1">
         {landingImageLeft && (
           <a
@@ -88,7 +97,7 @@ const Landing = () => {
       <EtsyStars />
 
       {/* Actions */}
-      <main className="mb-10 flex-col gap-4 py-4 lg:flex-row">
+      <main className="mb-4 flex-col gap-4 py-4 lg:flex-row">
         <a
           href="https://www.etsy.com/shop/PsaneCreations"
           target={'_blank'}

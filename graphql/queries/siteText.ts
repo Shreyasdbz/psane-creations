@@ -9,3 +9,12 @@ export const GET_BIO = gql`
     }
   }
 `
+export const GET_BANNER = gql`
+  query {
+    allSiteText(where: { textName: { eq: "landingPageBanner" } }) {
+      _id
+      textName
+      textContentRaw
+    }
+  }
+`

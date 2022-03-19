@@ -25,7 +25,7 @@ import {
   GET_EXHIBITION_HIGHLIGHT_PHOTOS,
 } from '../graphql/queries/exhibition'
 import { GET_PROFILE_PICTURE } from '../graphql/queries/siteImage'
-import { GET_BIO } from '../graphql/queries/siteText'
+import { GET_BIO, GET_BANNER } from '../graphql/queries/siteText'
 import { GET_TESTIMONIALS } from '../graphql/queries/testimonial'
 import {
   sortArtWorkCategoriesByName,
@@ -41,6 +41,7 @@ import {
 } from '../lib/exhibitions'
 
 type SanityContextType = {
+  bannerText: SiteTextType | null
   landingImageLeft: SiteImageType | null
   landingImageMiddle: SiteImageType | null
   landingImageRight: SiteImageType | null
@@ -65,6 +66,8 @@ type SanityContextProviderProps = {
 export const SanityContextProvider = ({
   children,
 }: SanityContextProviderProps) => {
+  const [bannerText, setBannerText] = useState<SiteTextType | null>(null)
+
   const [landingImageLeft, setLandingImageLeft] =
     useState<SiteImageType | null>(null)
 
@@ -114,8 +117,13 @@ export const SanityContextProvider = ({
     useState<boolean>(false)
 
   async function _get_cms_data() {
-    //
-    //   GET Landing Images
+    await apolloClient
+      .query({
+        query: GET_BANNER,
+      })
+      .then((res) => {
+        setBannerText(res.data.allSiteText[0])
+      })
     await apolloClient
       .query({
         query: GET_LANDING_IMAGE_LEFT,
@@ -261,6 +269,7 @@ export const SanityContextProvider = ({
   return (
     <SanityContext.Provider
       value={{
+        bannerText,
         landingImageLeft,
         landingImageMiddle,
         landingImageRight,
