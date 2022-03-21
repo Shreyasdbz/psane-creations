@@ -34,9 +34,9 @@ const ArtWorkGridTile = ({ art }: ArtWorkGridTileProps) => {
             <span className="float-left text-lg font-semibold">
               {art.title}
             </span>
-            <span className="text-md font-semibold text-gray-600">
+            {/* <span className="text-md font-semibold text-gray-600">
               $ {art.price}
-            </span>
+            </span> */}
           </div>
           <div className="link">
             <div className="text-md flex w-full items-center justify-start gap-1 font-bold text-orange-500">
